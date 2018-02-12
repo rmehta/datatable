@@ -54,7 +54,6 @@ export default class CellManager {
 
   bindKeyboardNav() {
     const focusCell = (direction) => {
-      console.log(direction);
       if (!this.$focusedCell || this.$editingCell) {
         return false;
       }
@@ -324,6 +323,7 @@ export default class CellManager {
   }
 
   activateEditing($cell) {
+    this.focusCell($cell);
     const { rowIndex, colIndex } = $.data($cell);
 
     const col = this.columnmanager.getColumn(colIndex);
